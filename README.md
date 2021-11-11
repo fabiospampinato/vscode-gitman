@@ -25,6 +25,13 @@ GitMan: Open // Open a repository in the current window
 GitMan: Open in New Window // Open a repository in a new window
 ```
 
+It adds 2 shortcuts:
+
+```js
+'Cmd/Ctrl+Alt+P' // Triggers `GitMan: Open`
+'Cmd/Ctrl+Alt+Shift+P' // Triggers `GitMan: Open in New Window`
+```
+
 ## Contributing
 
 If you found a problem, or have a feature request, please open an [issue](https://github.com/fabiospampinato/vscode-gitman/issues) about it.
