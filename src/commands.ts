@@ -46,8 +46,6 @@ async function open ( inNewWindow: boolean = false ) {
 
 async function openInNewWindow () {
 
-  vscode.window.showErrorMessage ( 'Hello World!' );
-
   open ( true );
 
 }
