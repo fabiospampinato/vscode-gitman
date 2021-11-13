@@ -10,7 +10,7 @@ const getRepos = async () => {
 
   try {
 
-    return await GitMan.get ();
+    return await GitMan.get ( true );
 
   } catch {
 

@@ -65,7 +65,7 @@
     "Other"
   ],
   "dependencies": {
-    "@fabiospampinato/gitman": "^1.1.0"
+    "@fabiospampinato/gitman": "^1.2.1"
   },
   "devDependencies": {
     "ts-loader": "^9.2.6",
