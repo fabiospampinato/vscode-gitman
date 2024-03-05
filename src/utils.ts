@@ -1,28 +1,20 @@
 
 /* IMPORT */
 
-import * as vscode from 'vscode';
-import * as Commands from './commands';
+import GitMan from 'gitman';
+import type {Repository} from './types';
 
-/* UTILS */
+/* MAIN */
 
-const Utils = {
+const getRepositories = async (): Promise<Repository[]> => {
 
-  initCommands ( context: vscode.ExtensionContext ) {
+  try {
 
-    const {commands} = vscode.extensions.getExtension ( 'fabiospampinato.vscode-gitman' ).packageJSON.contributes;
+    return await GitMan.get ( true );
 
-    commands.forEach ( ({ command, title }) => {
+  } catch {
 
-      const commandName = command.split ( '.' )[1] as string;
-      const handler = Commands[commandName];
-      const disposable = vscode.commands.registerCommand ( command, () => handler () );
-
-      context.subscriptions.push ( disposable );
-
-    });
-
-    return Commands;
+    return [];
 
   }
 
@@ -30,4 +22,4 @@ const Utils = {
 
 /* EXPORT */
 
-export default Utils;
+export {getRepositories};

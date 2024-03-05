@@ -21,8 +21,8 @@ ext install fabiospampinato.vscode-gitman
 It adds 2 commands to the command palette:
 
 ```js
-GitMan: Open // Open a repository in the current window
-GitMan: Open in New Window // Open a repository in a new window
+'GitMan: Open' // Open a repository in the current window
+'GitMan: Open in New Window' // Open a repository in a new window
 ```
 
 It adds 2 shortcuts:
@@ -31,12 +31,6 @@ It adds 2 shortcuts:
 'Cmd/Ctrl+Alt+P' // Triggers `GitMan: Open`
 'Cmd/Ctrl+Alt+Shift+P' // Triggers `GitMan: Open in New Window`
 ```
-
-## Contributing
-
-If you found a problem, or have a feature request, please open an [issue](https://github.com/fabiospampinato/vscode-gitman/issues) about it.
-
-If you want to make a pull request you can debug the extension using [Debug Launcher](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-debug-launcher).
 
 ## License
 

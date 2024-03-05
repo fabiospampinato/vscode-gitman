@@ -1,34 +1,18 @@
 
 /* IMPORT */
 
-import GitMan from '@fabiospampinato/gitman';
-import * as vscode from 'vscode';
+import vscode from 'vscode';
+import {getRepositories} from './utils';
 
-/* HELPERS */
+/* MAIN */
 
-const getRepos = async () => {
+const open = async ( inNewWindow: boolean = false ): Promise<void> => {
 
-  try {
+  const repositories = await getRepositories ();
 
-    return await GitMan.get ( true );
+  if ( !repositories.length ) return void vscode.window.showErrorMessage ( 'No repositories found, configure GitMan first!' );
 
-  } catch {
-
-    return [];
-
-  }
-
-};
-
-/* COMMANDS */
-
-async function open ( inNewWindow: boolean = false ) {
-
-  const repos = await getRepos ();
-
-  if ( !repos.length ) return vscode.window.showErrorMessage ( 'No repositories found, configure GitMan first!' );
-
-  const items = repos.map ( repo => ({
+  const items = repositories.map ( repo => ({
     label: `${repo.user}/${repo.name}`,
     description: repo.description,
     path: repo.path
@@ -42,13 +26,13 @@ async function open ( inNewWindow: boolean = false ) {
 
   vscode.commands.executeCommand ( 'vscode.openFolder', repoUri, inNewWindow );
 
-}
+};
 
-async function openInNewWindow () {
+const openInNewWindow = (): Promise<void> => {
 
-  open ( true );
+  return open ( true );
 
-}
+};
 
 /* EXPORT */
 
