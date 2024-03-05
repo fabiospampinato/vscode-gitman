@@ -1,3 +1,6 @@
+### Version 2.0.0
+- Rewitten: more modern code, no third-party dependencies, 99.8% smaller bundle
+
 ### Version 1.2.0
 - Updated gitman, adding support for symlinked repositories
 
