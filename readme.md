@@ -1,5 +1,3 @@
-> This is just a front-end for [GitMan](https://github.com/fabiospampinato/gitman), which you must install on your system. Read its readme to learn how to configure it.
-
 # GitMan
 
 <p align="center">
@@ -7,6 +5,8 @@
 </p>
 
 Frontend for [GitMan](https://github.com/fabiospampinato/gitman) for switching quickly to other repositories.
+
+You should read [GitMan](https://github.com/fabiospampinato/gitman)'s readme to learn how to configure it.
 
 ## Install
 

@@ -1,16 +1,16 @@
 
 /* IMPORT */
 
-import vscode from 'vscode';
-import {getRepositories} from './utils';
+import GitMan from 'gitman';
+import {alert, openInWindow, prompt} from 'vscode-extras';
 
 /* MAIN */
 
 const open = async ( inNewWindow: boolean = false ): Promise<void> => {
 
-  const repositories = await getRepositories ();
+  const repositories = await GitMan.get ( true );
 
-  if ( !repositories.length ) return void vscode.window.showErrorMessage ( 'No repositories found, configure GitMan first!' );
+  if ( !repositories.length ) return alert.error ( 'No repositories found, configure GitMan first!' );
 
   const items = repositories.map ( repo => ({
     label: `${repo.user}/${repo.name}`,
@@ -18,13 +18,11 @@ const open = async ( inNewWindow: boolean = false ): Promise<void> => {
     path: repo.path
   }));
 
-  const item = await vscode.window.showQuickPick ( items );
+  const item = await prompt.select ( `Select a repository to open${inNewWindow ? ' in a new window' : ''}...`, items );
 
   if ( !item ) return;
 
-  const repoUri = vscode.Uri.file ( item.path );
-
-  vscode.commands.executeCommand ( 'vscode.openFolder', repoUri, inNewWindow );
+  openInWindow ( item.path, inNewWindow );
 
 };
 
